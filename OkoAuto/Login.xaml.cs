@@ -12,15 +12,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using OkoAuto;
 
 namespace OkoAuto
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Login : Window
     {
-        public MainWindow()
+        public Login()
         {
             InitializeComponent();
         }
@@ -28,6 +29,10 @@ namespace OkoAuto
         private void Login_Click(object sender, RoutedEventArgs e)
         {
             Console.WriteLine("Logged in bitch");
+            Console.WriteLine(txtPassword);
+            var newForm = new Home(); //create your new form.
+            newForm.Show();
+            this.Close();
         }
     }
 }
