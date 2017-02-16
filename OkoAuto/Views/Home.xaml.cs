@@ -10,27 +10,30 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using OkoAuto;
 
 namespace OkoAuto
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Window2.xaml
     /// </summary>
-    public partial class Login : Window
+    public partial class Home : Window
     {
-        public Login()
+        public Home()
         {
             InitializeComponent();
         }
 
-        private void Login_Click(object sender, RoutedEventArgs e)
+        private void Add_Click(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine("Logged in bitch");
-            Console.WriteLine(txtPassword);
-            var newForm = new Home(); //create your new form.
+            var newForm = new AddCar(); //create your new form.
+            newForm.Show();
+            this.Close();
+        }
+
+        private void ViewInventory_Click(object sender, RoutedEventArgs e)
+        {
+            var newForm = new Inventory(); //create your new form.
             newForm.Show();
             this.Close();
         }

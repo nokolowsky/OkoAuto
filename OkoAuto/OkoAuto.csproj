@@ -52,6 +52,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -66,35 +67,56 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
+    <ApplicationDefinition Include="Views\App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Home.xaml.cs">
+    <Compile Include="Database\DataPortalcs.cs" />
+    <Compile Include="Logic\ApplicationStateManager.cs" />
+    <Compile Include="Logic\Authenticationcs.cs" />
+    <Compile Include="Logic\CarClasses\CarMake.cs" />
+    <Compile Include="Logic\CarClasses\CarModel.cs" />
+    <Compile Include="Logic\CarClasses\Car.cs" />
+    <Compile Include="Logic\User.cs" />
+    <Compile Include="CarSpecs.xaml.cs">
+      <DependentUpon>CarSpecs.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AddCar.xaml.cs">
+    <Compile Include="Views\AddCar.xaml.cs">
       <DependentUpon>AddCar.xaml</DependentUpon>
     </Compile>
-    <Page Include="Login.xaml">
+    <Page Include="CarSpecs.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Inventory.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Login.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="App.xaml.cs">
+    <Compile Include="Views\App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Home.xaml">
+    <Page Include="Views\Home.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AddCar.xaml">
+    <Page Include="Views\AddCar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Login.xaml.cs">
+    <Compile Include="Views\Inventory.xaml.cs">
+      <DependentUpon>Inventory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Login.xaml.cs">
       <SubType>Code</SubType>
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
@@ -122,7 +144,7 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config">
+    <None Include="Views\App.config">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
@@ -137,6 +159,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Config\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

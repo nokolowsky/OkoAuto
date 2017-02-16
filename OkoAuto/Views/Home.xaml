@@ -20,6 +20,7 @@
             <Button Content="Add" Margin="10" Height="45" Width="100" VerticalAlignment="Center" HorizontalAlignment="Center" Click="Add_Click"/>
             <Button Content="Modify" Margin="10" Height="45" Width="100" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             <Button Content="Delete" Margin="10" Height="45" Width="100" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <Button Content="Inventory" Margin="10" Height="45" Width="100" VerticalAlignment="Center" HorizontalAlignment="Center" Click="ViewInventory_Click"/>
             <Button Content="Admin" Margin="10" Height="45" Width="100" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             <Button Content="Reports" Margin="10" Height="45" Width="100" VerticalAlignment="Center" HorizontalAlignment="Center"/>
         </WrapPanel>

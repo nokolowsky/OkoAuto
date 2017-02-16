@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="OkoAuto" Height="1020" Width="1980">
     <Grid x:Name="LoginLayer" Background="#B0000000">
-        <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Background="LightBlue" Height="1020"  Width="1980">
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Background="LightBlue" Height="1020"  Width="1980" Margin="-3,4,-3.4,-33.6">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
@@ -26,6 +26,7 @@
                     <RowDefinition Height="1.5*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
+                <TextBlock Name="IncorrectLogin" FontSize="35" Foreground ="Red" Text="Incorrect password" Margin="10"  Grid.ColumnSpan="3" Visibility="Hidden" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                 <StackPanel Orientation="Vertical" VerticalAlignment="Center">
                     <TextBlock Name="NameText" FontSize="35" Text="Username:" Margin="5"  Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>                  
                     <TextBlock Name="PasswordText" FontSize="35" Text="Password:" HorizontalAlignment="Left" Margin="5" VerticalAlignment="Center"/>                   
