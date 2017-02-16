@@ -193,6 +193,10 @@ namespace OkoAuto
             savePics(Car);    
             dp.AddCar(Car);
         }
-        
+
+        private void CarSpecs_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

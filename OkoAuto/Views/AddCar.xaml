@@ -7,52 +7,17 @@
         mc:Ignorable="d"
         Title="Window3" Height="1080" Width="1920" AllowDrop="True" Drop="Window_Drop">
     <Grid x:Name="Page" Background="LightBlue" HorizontalAlignment="Center" VerticalAlignment="Center" Height="1080"  Width="1920" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="9*"/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
-        <StackPanel Orientation="Vertical" VerticalAlignment="Center" Grid.Column="0">
-            <ComboBox Name="Makes"
-                      Margin="10"
-                      Height="50"
-                      FontSize="20"
-                      ItemsSource="{Binding Path=ApplicationStateManager.CarMakesList}"
-                      DisplayMemberPath="CarMake"
-                      SelectedValuePath="CarMake"
-                      SelectionChanged="Makes_SelectionChanged"
-                      SelectedValue="{Binding Path=SelectedCarMake, Mode=TwoWay}"/>
-            <ComboBox Name="Models" 
-                      Margin="10"
-                      Height="50"
-                      FontSize="20"
-                      ItemsSource="{Binding Path=ApplicationStateManager.CarModelList}"
-                      DisplayMemberPath="CarModel"
-                      SelectedValuePath="CarModel"
-                      SelectedValue="{Binding Path=SelectedCarModel, Mode=TwoWay}"/>
-            <StackPanel Orientation="Horizontal" Grid.Row="0" VerticalAlignment="Center" Margin="10">
-                <TextBlock Name="YearText" FontSize="35" Text="Year:" Margin="5"  Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                <TextBox x:Name="Year" FontSize="35" Text="{Binding Year}" Grid.Column="1" Margin="10" Height="45" Width="100" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-                <TextBlock Name="VinText" FontSize="35" Text="VIN:" Margin="5"  Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                <TextBox x:Name="Vin" FontSize="35" Text="{Binding VIN}" Grid.Column="1" Margin="10" Height="45" Width="180" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Grid.Row="0" VerticalAlignment="Center" Margin="10">
-                <TextBlock Name="KilometersText" FontSize="35" Text="KM:" Margin="5"  Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                <TextBox x:Name="Kilometers" FontSize="35" Text="{Binding Kilometers}" PreviewTextInput="NumberValidationTextBox" TextChanged="KilometersChanged" Grid.Column="1" Margin="10" Height="45" Width="130" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-                <TextBlock Name="MileageText" FontSize="35" Text="Miles:" Margin="5"  Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                <TextBox x:Name="Mileage" FontSize="35" Text="{Binding Mileage}" PreviewTextInput="NumberValidationTextBox" TextChanged="MileageChanged" Grid.Column="1" Margin="10" Height="45" Width="130" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-            </StackPanel>
-            <StackPanel Orientation="Vertical" Grid.Row="0" VerticalAlignment="Center" Margin="10">
-                <TextBlock Name="NotesText" FontSize="35" Text="Notes:" Margin="5"  Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                <TextBox x:Name="Notes" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" 
-                         AcceptsReturn="True" FontSize="35" Text="{Binding Notes}" TextChanged="NotesChanged"
-                         Grid.Column="1" Margin="10" Height="300" Width="460" 
-                         VerticalAlignment="Center" HorizontalAlignment="Left"/>
-            </StackPanel>
-            <Button Content="Add Car" Grid.ColumnSpan="1" Margin="10" Height="45" Width="190" VerticalAlignment="Center" HorizontalAlignment="Left" Click="AddCar_Click"/>
-
-
-        </StackPanel>
-        <Grid Grid.Column="1" Margin="50">
+        <local:Navigation Grid.Row ="0" Grid.ColumnSpan="2" Loaded="Navigation_Loaded" />
+        <local:CarSpecs Grid.Column="0" Grid.Row ="1" Loaded="CarSpecs_Loaded" />
+        <Grid Grid.Column="1" Grid.Row ="1" Margin="50">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
@@ -83,8 +48,8 @@
             <Image Name="MainImage" RenderOptions.BitmapScalingMode="NearestNeighbor" Margin="100"
        RenderOptions.EdgeMode="Aliased" Grid.Row="1"  Height="700" Width="700" VerticalAlignment="Center" HorizontalAlignment="Center" />
         </Grid>
-        <Button Content="Previous"  Grid.Column="1" Name ="PrevPic" Margin="60,0,0,40" Height="45" Width="90" VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="PrevPic_Click"/>
-        <Button Content="Next" Grid.Column="1"  Name ="NextPic"  Margin="0,0,60,40" Height="45" Width="90" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="NextPic_Click"/>
-        <Button Content="Delete" Name ="DeletePic" Grid.Column="1"  Margin="60,0,60,40" Height="45" Width="90" VerticalAlignment="Bottom" HorizontalAlignment="Center" Click="DelPic_Click"/>
+        <Button Content="Previous"  Grid.Column="1" Grid.Row ="1" Name ="PrevPic" Margin="60,0,0,40" Height="45" Width="90" VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="PrevPic_Click"/>
+        <Button Content="Next" Grid.Column="1"  Grid.Row ="1" Name ="NextPic"  Margin="0,0,60,40" Height="45" Width="90" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="NextPic_Click"/>
+        <Button Content="Delete" Name ="DeletePic" Grid.Row ="1" Grid.Column="1"  Margin="60,0,60,40" Height="45" Width="90" VerticalAlignment="Bottom" HorizontalAlignment="Center" Click="DelPic_Click"/>
     </Grid>
 </Window>

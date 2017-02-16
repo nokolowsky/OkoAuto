@@ -1,12 +1,52 @@
-﻿<UserControl x:Class="OkoAuto.UserControl1"
+﻿<UserControl x:Class="OkoAuto.CarSpecs"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:OkoAuto"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="1080" d:DesignWidth="480">
     <Grid>
-            
+        <StackPanel Orientation="Vertical" VerticalAlignment="Center" Grid.Column="0">
+            <ComboBox Name="Makes"
+                      Margin="10"
+                      Height="50"
+                      FontSize="20"
+                      ItemsSource="{Binding Path=ApplicationStateManager.CarMakesList}"
+                      DisplayMemberPath="CarMake"
+                      SelectedValuePath="CarMake"
+                      SelectionChanged="Makes_SelectionChanged"
+                      SelectedValue="{Binding Path=SelectedCarMake, Mode=TwoWay}"/>
+            <ComboBox Name="Models" 
+                      Margin="10"
+                      Height="50"
+                      FontSize="20"
+                      ItemsSource="{Binding Path=ApplicationStateManager.CarModelList}"
+                      DisplayMemberPath="CarModel"
+                      SelectedValuePath="CarModel"
+                      SelectedValue="{Binding Path=SelectedCarModel, Mode=TwoWay}"/>
+            <StackPanel Orientation="Horizontal" Grid.Row="0" VerticalAlignment="Center" Margin="10">
+                <TextBlock Name="YearText" FontSize="35" Text="Year:" Margin="5"  Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <TextBox x:Name="Year" FontSize="35" Text="{Binding Year}" Grid.Column="1" Margin="10" Height="45" Width="100" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                <TextBlock Name="VinText" FontSize="35" Text="VIN:" Margin="5"  Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <TextBox x:Name="Vin" FontSize="35" Text="{Binding VIN}" Grid.Column="1" Margin="10" Height="45" Width="180" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Row="0" VerticalAlignment="Center" Margin="10">
+                <TextBlock Name="KilometersText" FontSize="35" Text="KM:" Margin="5"  Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <TextBox x:Name="Kilometers" FontSize="35" Text="{Binding Kilometers}" PreviewTextInput="NumberValidationTextBox" TextChanged="KilometersChanged" Grid.Column="1" Margin="10" Height="45" Width="130" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                <TextBlock Name="MileageText" FontSize="35" Text="Miles:" Margin="5"  Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <TextBox x:Name="Mileage" FontSize="35" Text="{Binding Mileage}" PreviewTextInput="NumberValidationTextBox" TextChanged="MileageChanged" Grid.Column="1" Margin="10" Height="45" Width="130" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Grid.Row="0" VerticalAlignment="Center" Margin="10">
+                <TextBlock Name="NotesText" FontSize="35" Text="Notes:" Margin="5"  Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <TextBox x:Name="Notes" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" 
+                         AcceptsReturn="True" FontSize="35" Text="{Binding Notes}" TextChanged="NotesChanged"
+                         Grid.Column="1" Margin="10" Height="300" Width="460" 
+                         VerticalAlignment="Center" HorizontalAlignment="Left"/>
+            </StackPanel>
+            <Button Content="Add Car" Grid.ColumnSpan="1" Margin="10" Height="45" Width="190" VerticalAlignment="Center" HorizontalAlignment="Left" Click="AddCar_Click"/>
+
+
+        </StackPanel>
     </Grid>
 </UserControl>
